@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://kvpsgwdwrk77"]
+[gd_scene load_steps=11 format=3 uid="uid://kvpsgwdwrk77"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ah2ec"]
 
@@ -22,6 +22,8 @@ albedo_color = Color(0.238866, 0.174178, 0.0852699, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrdcr"]
 albedo_color = Color(0.601909, 0.129501, 0.192476, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ah2ec"]
+
 [node name="Main" type="Node3D"]
 
 [node name="Ground" type="StaticBody3D" parent="."]
@@ -33,88 +35,92 @@ mesh = SubResource("BoxMesh_ah2ec")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("BoxShape3D_vu087")
 
-[node name="Body" type="RigidBody3D" parent="."]
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.508607, 0.736419, -3.17186)
 
-[node name="Torso" type="MeshInstance3D" parent="Body"]
+[node name="Torso" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1.50458, -0.122934, 0, 0.424107, 0.436125, 0.271122, 0.0618628, -0.0567568)
 mesh = SubResource("BoxMesh_vu087")
 surface_material_override/0 = SubResource("StandardMaterial3D_83eq6")
 
-[node name="Head" type="MeshInstance3D" parent="Body/Torso"]
+[node name="Head" type="MeshInstance3D" parent="RigidBody3D/Torso"]
 transform = Transform3D(0.526474, 0, 0, 0, 0.269685, 0.0559147, 0, -0.15793, 1.13638, -0.00510216, 0.692256, 0.15655)
 mesh = SubResource("BoxMesh_vu087")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_wka5d")
 
-[node name="LeftLeg" type="MeshInstance3D" parent="Body/Torso"]
+[node name="LeftLeg" type="MeshInstance3D" parent="RigidBody3D/Torso"]
 transform = Transform3D(0.253142, 0, 0, 0, 0.299088, 0.128619, 0, -1.42566, 0.321139, 0.37332, -0.539835, 0.863986)
 mesh = SubResource("BoxMesh_vu087")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_83eq6")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Body/Torso/LeftLeg"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="RigidBody3D/Torso/LeftLeg"]
 transform = Transform3D(1, 0, 0, 0, 0.219318, -0.30366, 0, 3.13475, 0.219318, 0.0595678, -0.447398, -1.00337)
 mesh = SubResource("BoxMesh_vu087")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_83eq6")
 
-[node name="Ski2" type="MeshInstance3D" parent="Body/Torso/LeftLeg"]
+[node name="Ski2" type="MeshInstance3D" parent="RigidBody3D/Torso/LeftLeg"]
 transform = Transform3D(1.19917, 0, 0, 0, 0.0834491, -1.00625, 0, 0.0873297, 9.92612, 0.00694638, -0.73655, -1.81437)
 mesh = SubResource("BoxMesh_dfejb")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_srnm7")
 
-[node name="LeftArm" type="MeshInstance3D" parent="Body/Torso"]
+[node name="LeftArm" type="MeshInstance3D" parent="RigidBody3D/Torso"]
 transform = Transform3D(-0.248673, 0.0813961, 0.0276909, -0.0312005, 0.302723, -0.190326, 0.0225427, 1.31688, 0.0420403, 0.694296, 0.162408, 0.651705)
 mesh = SubResource("BoxMesh_vu087")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_83eq6")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Body/Torso/LeftArm"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="RigidBody3D/Torso/LeftArm"]
 transform = Transform3D(1, 0, 0, 0, 0.219318, -0.30366, 0, 3.13475, 0.219318, 0.0595678, -0.447398, -1.00337)
 mesh = SubResource("BoxMesh_vu087")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_83eq6")
 
-[node name="LeftSkiPole" type="MeshInstance3D" parent="Body/Torso/LeftArm"]
+[node name="LeftSkiPole" type="MeshInstance3D" parent="RigidBody3D/Torso/LeftArm"]
 transform = Transform3D(-0.277515, -1.01576, 0.0564764, 0.00313885, -0.535555, 0.127648, 0.0504861, -7.54762, 0.13196, 0.310903, 0.632323, 2.84683)
 mesh = SubResource("BoxMesh_qxjum")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_yrdcr")
 
-[node name="RightArm" type="MeshInstance3D" parent="Body/Torso"]
+[node name="RightArm" type="MeshInstance3D" parent="RigidBody3D/Torso"]
 transform = Transform3D(-0.245171, -0.183109, -0.0354448, 0.0365293, 0.316673, -0.189263, -0.0433208, 1.30332, 0.0410062, -0.691027, 0.162408, 0.651705)
 mesh = SubResource("BoxMesh_vu087")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_83eq6")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Body/Torso/RightArm"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="RigidBody3D/Torso/RightArm"]
 transform = Transform3D(1, 0, 0, 0, 0.219318, -0.30366, 0, 3.13475, 0.219318, 0.0595678, -0.447398, -1.00337)
 mesh = SubResource("BoxMesh_vu087")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_83eq6")
 
-[node name="RightSkiPole" type="MeshInstance3D" parent="Body/Torso/RightArm"]
+[node name="RightSkiPole" type="MeshInstance3D" parent="RigidBody3D/Torso/RightArm"]
 transform = Transform3D(-0.273607, 1.46874, -0.112885, -0.00706115, -0.517873, 0.126443, -0.0646231, -7.48389, 0.127616, -0.578261, 0.627503, 2.84101)
 mesh = SubResource("BoxMesh_qxjum")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_yrdcr")
 
-[node name="RightLeg" type="MeshInstance3D" parent="Body/Torso"]
+[node name="RightLeg" type="MeshInstance3D" parent="RigidBody3D/Torso"]
 transform = Transform3D(0.253142, 0, 0, 0, 0.299088, 0.128619, 0, -1.42566, 0.321139, -0.369706, -0.539835, 0.863986)
 mesh = SubResource("BoxMesh_vu087")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_83eq6")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Body/Torso/RightLeg"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="RigidBody3D/Torso/RightLeg"]
 transform = Transform3D(1, 0, 0, 0, 0.219318, -0.30366, 0, 3.13475, 0.219318, 0.0595678, -0.447398, -1.00337)
 mesh = SubResource("BoxMesh_vu087")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_83eq6")
 
-[node name="Ski" type="MeshInstance3D" parent="Body/Torso/RightLeg"]
+[node name="Ski" type="MeshInstance3D" parent="RigidBody3D/Torso/RightLeg"]
 transform = Transform3D(1.19917, 0, 0, 0, 0.0834491, -1.00625, 0, 0.0873297, 9.92612, 0.00249338, -0.73655, -1.81437)
 mesh = SubResource("BoxMesh_dfejb")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_srnm7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1.82336, 0, 0, 0, 2.76474, 0, 0, 0, 1.91441, 0.260155, -0.0463393, 0.140144)
+shape = SubResource("BoxShape3D_ah2ec")
