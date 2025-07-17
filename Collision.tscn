@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://kvpsgwdwrk77"]
+[gd_scene load_steps=19 format=3 uid="uid://kvpsgwdwrk77"]
 
 [ext_resource type="Script" uid="uid://dhmkhe1agfe87" path="res://Collision/PlayerMovement.gd" id="1_vu087"]
 
@@ -32,6 +32,24 @@ albedo_color = Color(0.601909, 0.129501, 0.192476, 1)
 [sub_resource type="Environment" id="Environment_ah2ec"]
 background_mode = 1
 background_color = Color(0.384878, 0.768683, 0.972957, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vu087"]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfejb"]
+albedo_color = Color(0.444228, 0.383021, 0.234634, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_srnm7"]
+top_radius = 0.0
+bottom_radius = 0.75
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxjum"]
+albedo_color = Color(0, 0.688699, 0.50927, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yrdcr"]
 
 [node name="Main" type="Node3D"]
 
@@ -145,3 +163,29 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ah2ec")
+
+[node name="Tree" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40233, 0)
+mesh = SubResource("CylinderMesh_vu087")
+surface_material_override/0 = SubResource("StandardMaterial3D_dfejb")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.31826, 0)
+mesh = SubResource("CylinderMesh_srnm7")
+surface_material_override/0 = SubResource("StandardMaterial3D_qxjum")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.70847, 0)
+mesh = SubResource("CylinderMesh_srnm7")
+surface_material_override/0 = SubResource("StandardMaterial3D_qxjum")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Tree"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.04111, 0)
+mesh = SubResource("CylinderMesh_srnm7")
+surface_material_override/0 = SubResource("StandardMaterial3D_qxjum")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree"]
+transform = Transform3D(0.664183, 0, 0, 0, 1, 0, 0, 0, 0.529773, 0, 1.92517, 0)
+shape = SubResource("CylinderShape3D_yrdcr")
