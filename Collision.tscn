@@ -29,6 +29,7 @@ albedo_color = Color(0.238866, 0.174178, 0.0852699, 1)
 albedo_color = Color(0.601909, 0.129501, 0.192476, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ah2ec"]
+size = Vector3(1, 0.92572, 1.03906)
 
 [sub_resource type="Environment" id="Environment_ah2ec"]
 background_mode = 1
@@ -46,12 +47,12 @@ mesh = SubResource("BoxMesh_ah2ec")
 shape = SubResource("BoxShape3D_vu087")
 
 [node name="Player" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32543, 6.11405, 11.7214)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32543, 6.13428, 11.7214)
 physics_material_override = SubResource("PhysicsMaterial_ah2ec")
 script = ExtResource("1_vu087")
 
 [node name="Body" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(-1, 3.69802e-08, 3.81351e-08, -5.6816e-08, 0.868834, -0.376685, -6.64431e-08, -1.29952, -0.251845, 0, 0.062, -0.0569999)
+transform = Transform3D(-0.5, 1.82218e-08, 1.90507e-08, -2.8408e-08, 0.434637, -0.188709, -3.30079e-08, -0.650088, -0.126167, 0, -0.818531, -0.0570002)
 mesh = SubResource("BoxMesh_vu087")
 surface_material_override/0 = SubResource("StandardMaterial3D_83eq6")
 
@@ -134,7 +135,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_srnm7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1.82336, 0, 0, 0, 2.76474, 0, 0, 0, 1.91441, 0.260155, -0.0463393, 0.140144)
+transform = Transform3D(1, 0, 0, 0, 1.517, 0, 0, 0, 1.67044, -0.0127172, -1.01034, 0.192132)
 shape = SubResource("BoxShape3D_ah2ec")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
