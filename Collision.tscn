@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://kvpsgwdwrk77"]
+[gd_scene load_steps=16 format=3 uid="uid://kvpsgwdwrk77"]
 
 [ext_resource type="Script" uid="uid://dhmkhe1agfe87" path="res://Collision/PlayerMovement.gd" id="1_vu087"]
 [ext_resource type="PackedScene" uid="uid://do3sy00vmg3js" path="res://Collision/Tree.tscn" id="2_83eq6"]
+[ext_resource type="PackedScene" uid="uid://c2uvg2fkprx5g" path="res://Collision/FinishLine.tscn" id="3_wka5d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ah2ec"]
 
@@ -176,5 +177,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.66624, 1.02511, 5.19776)
 
 [node name="Tree5" parent="." instance=ExtResource("2_83eq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.66624, -2.85367, -5.66357)
+
+[node name="FinishLine" parent="." groups=["Tree"] instance=ExtResource("3_wka5d")]
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
